@@ -2,9 +2,30 @@
   "site": {
     "main_title": "Cequn Yang | C++ Desktop Software Engineer Resume | Qt/C++ | Germany",
     "ats_title": "Cequn Yang | ATS Resume | C++ Desktop Software Engineer | Germany",
-    "favicon": "favicon.svg",
-    "pdf_filename": "cequnyang_cpp.pdf",
-    "ats_pdf_filename": "cequnyang_cpp_ats.pdf"
+    "favicon": "assets/favicon.svg"
+  },
+  "build": {
+    "outputs": {
+      "main_html": "index.html",
+      "main_wrapper": "resume/index.html",
+      "ats_html": "ats/index.html",
+      "ats_wrapper": "ats/resume/index.html",
+      "main_pdf": "assets/pdf/cequnyang_cpp.pdf",
+      "ats_pdf": "assets/pdf/cequnyang_cpp_ats.pdf"
+    },
+    "obsolete_files": [
+      "resume.pdf",
+      "resume.html",
+      "resume_ats.html",
+      "cequnyang_cpp.pdf",
+      "cequnyang_cpp_ats.pdf",
+      "cequnyang_cpp_ats.html"
+    ],
+    "pdf_export": {
+      "browser_path": "",
+      "browser_paths": [],
+      "browser_executable_names": []
+    }
   },
   "person": {
     "name": "Cequn Yang",

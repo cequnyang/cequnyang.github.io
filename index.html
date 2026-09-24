@@ -43,8 +43,15 @@
     }
 
     .page-actions {
-      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
       margin-bottom: 6px;
+    }
+
+    .page-actions-right {
+      text-align: right;
     }
 
     h1 {
@@ -306,9 +313,12 @@
 <body>
   <main class="page">
     <div class="page-actions">
-      <a class="action-link" href="resume/index.html" target="_blank" rel="noopener noreferrer">View PDF Resume</a>
-      <span class="sep" aria-hidden="true">|</span>
-      <a class="action-link" href="ats/index.html">ATS Version</a>
+      <div class="page-actions-left"><a class="action-link" href="https://diveatlas.site/" target="_blank" rel="noopener noreferrer">I Love Diving</a></div>
+      <div class="page-actions-right">
+        <a class="action-link" href="resume/index.html" target="_blank" rel="noopener noreferrer">View PDF Resume</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a class="action-link" href="ats/index.html">ATS Version</a>
+      </div>
     </div>
 
     <header class="masthead">

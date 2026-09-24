@@ -135,8 +135,15 @@ MAIN_TEMPLATE = Template(
     }
 
     .page-actions {
-      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
       margin-bottom: 6px;
+    }
+
+    .page-actions-right {
+      text-align: right;
     }
 
     h1 {
@@ -398,9 +405,12 @@ MAIN_TEMPLATE = Template(
 <body>
   <main class="page">
     <div class="page-actions">
-      <a class="action-link" href="$pdf_wrapper_href" target="_blank" rel="noopener noreferrer">View PDF Resume</a>
-      <span class="sep" aria-hidden="true">|</span>
-      <a class="action-link" href="$ats_html_href">ATS Version</a>
+      <div class="page-actions-left">$highlight_link</div>
+      <div class="page-actions-right">
+        <a class="action-link" href="$pdf_wrapper_href" target="_blank" rel="noopener noreferrer">View PDF Resume</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a class="action-link" href="$ats_html_href">ATS Version</a>
+      </div>
     </div>
 
     <header class="masthead">
@@ -1016,6 +1026,15 @@ def render_meta_line(person: dict) -> str:
     return join_contact_items(items)
 
 
+def render_highlight_link(link: dict | None) -> str:
+    if not link:
+        return ""
+    return '<a class="action-link" href="{url}" target="_blank" rel="noopener noreferrer">{label}</a>'.format(
+        url=esc_attr(link["url"]),
+        label=esc_text(link["label"]),
+    )
+
+
 def render_org(name: str, url: str | None, link_class: str | None) -> str:
     if not url:
         return esc_text(name)
@@ -1100,6 +1119,7 @@ def render_main_html(data: dict, outputs: dict[str, Path]) -> str:
         name=esc_text(person["name"]),
         pdf_wrapper_href=esc_attr(html_href(outputs["main_html"], outputs["main_wrapper"])),
         ats_html_href=esc_attr(html_href(outputs["main_html"], outputs["ats_html"])),
+        highlight_link=render_highlight_link(site.get("highlight_link")),
         contact_line_main=render_main_contact_line(person),
         meta_line=render_meta_line(person),
         summary=esc_text(data["summary"]),

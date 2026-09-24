@@ -2,7 +2,11 @@
   "site": {
     "main_title": "Cequn Yang | C++ Desktop Software Engineer Resume | Qt/C++ | Germany",
     "ats_title": "Cequn Yang | ATS Resume | C++ Desktop Software Engineer | Germany",
-    "favicon": "assets/favicon.svg"
+    "favicon": "assets/favicon.svg",
+    "highlight_link": {
+      "label": "I Love Diving",
+      "url": "https://diveatlas.site/"
+    }
   },
   "build": {
     "outputs": {
